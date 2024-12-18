@@ -13,11 +13,17 @@ return {
     width = 30,
     preserve_window_proportions = true,
   },
+  git = {
+    enable = true,
+  },
   renderer = {
     root_folder_label = false,
     highlight_git = true,
     indent_markers = { enable = true },
     icons = {
+      show = {
+        git = true,
+      },
       glyphs = {
         default = "󰈚",
         folder = {

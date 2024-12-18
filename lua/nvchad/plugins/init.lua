@@ -69,7 +69,10 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      formatters_by_ft = { lua = { "stylua" } },
+      formatters_by_ft = { 
+        lua = { "stylua" }, 
+        python = { "isort", "black" } 
+      },
     },
   },
 
@@ -103,14 +106,6 @@ return {
           "html",
         }
       }
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    event = "User FilePost",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
     end,
   },
 
@@ -179,6 +174,72 @@ return {
     end,
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+          { "mfussenegger/nvim-dap-python" },
+        },
+        config = function(_, opts)
+          require("dap-python").setup("~/.local/venv/debugpy/bin/python", { test_runner = "unittest" })
+          require("configs.dap")
+        end,
+      },
+
+    },
+    config = function(_, opts)
+      require("dapui").setup(opts)
+    end,
+  },
+
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+
+    opts = {
+      symbol_in_winbar = { enable = false }
+    },
+    config = function(_, opts)
+      require("lspsaga").setup(opts)
+    end,
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "folke/neoconf.nvim",
+
+      dependecies =  {
+        "folke/neodev.nvim",
+        opts = {
+          library = {
+            plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+            types = true,
+          },
+        },
+        config = function(_, opts)
+          require("neodev").setup(opts)
+        end,
+      },
+    },
+    init = function()
+      vim.opt.expandtab = true
+      vim.opt.shiftwidth = 4
+      vim.opt.smartindent = true
+      vim.opt.tabstop = 4
+      vim.opt.softtabstop = 4
+    end,
+    event = "User FilePost",
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require("nvchad.configs.lspconfig").servers()
+      require("nvchad.configs.lspconfig").dap()
+      require "neoconf".setup()
     end,
   },
 }

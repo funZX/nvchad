@@ -10,6 +10,21 @@ return {
     enable = true,
     use_languagetree = true,
   },
-
+  ensure_installed = {
+    "c",
+    "cpp",
+    "python",
+    "go",
+    "rust",
+    "robot",
+    "lua",
+    "squirrel",
+    "jsonc",
+    "html",
+    "vim",
+    "vimdoc",
+    "markdown",
+    "markdown_inline",
+  },
   indent = { enable = true },
 }
