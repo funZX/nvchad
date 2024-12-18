@@ -52,11 +52,12 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-M.defaults = function()
+M.setup_default = function()
   dofile(vim.g.base46_cache .. "lsp")
   require("nvchad.lsp").diagnostic_config()
 
-  require("lspconfig").lua_ls.setup {
+  local lspconfig = require "lspconfig"
+  lspconfig.lua_ls.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     on_init = M.on_init,
@@ -79,6 +80,65 @@ M.defaults = function()
         },
       },
     },
+  }
+end
+
+M.setup_servers = function()
+  local configs = require "lspconfig.configs"
+  configs.robot = {
+      default_config = {
+          name = "robot",
+          cmd = { "robotframework_ls" },
+          filetypes = "robot",
+          root_dir = function()
+              return vim.fn.getcwd()
+          end,
+      },
+  }
+
+  local lspconfig = require "lspconfig"
+  local servers = { "html", "cssls", "clangd", "pyright", "bashls", "html", "jsonls", "robot" }
+
+  -- lsps with default config
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      on_attach = M.on_attach,
+      on_init = M.on_init,
+      capabilities = M.capabilities,
+    }
+  end
+end
+
+M.setup_dap = function()
+  local dap, dapui = require("dap"), require("dapui")
+
+  dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+  end
+  dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+  end
+  dap.listeners.before.event_terminated.dapui_config = function()
+      dapui.close()
+  end
+  dap.listeners.before.event_exited.dapui_config = function()
+      dapui.close()
+  end
+
+
+  vim.api.nvim_set_hl(0, "red", { fg = "#f03000" })
+  vim.api.nvim_set_hl(0, "green", { fg = "#9ece6a" })
+  vim.api.nvim_set_hl(0, "yellow", { fg = "#FFFF00" })
+  vim.api.nvim_set_hl(0, "orange", { fg = "#f09000" })
+
+  vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'red', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+  vim.fn.sign_define('DapBreakpointCondition',{ text = '󱗜', texthl = 'red', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+  vim.fn.sign_define('DapBreakpointRejected',{ text = '', texthl = 'orange', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+  vim.fn.sign_define('DapStopped', { text = '', texthl = 'green', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+  vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'yellow', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+
+  vim.diagnostic.config {
+      virtual_text = { prefix = "󰧞"},
   }
 end
 

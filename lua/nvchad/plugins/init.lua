@@ -104,6 +104,7 @@ return {
           "bashls",
           "jsonls",
           "html",
+          "cssls",
         }
       }
     end,
@@ -187,7 +188,7 @@ return {
         },
         config = function(_, opts)
           require("dap-python").setup("~/.local/venv/debugpy/bin/python", { test_runner = "unittest" })
-          require("configs.dap")
+          require "configs.dap"
         end,
       },
 
@@ -236,10 +237,12 @@ return {
     end,
     event = "User FilePost",
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require("nvchad.configs.lspconfig").servers()
-      require("nvchad.configs.lspconfig").dap()
-      require "neoconf".setup()
+      local lspconfig = require("nvchad.configs.lspconfig")
+      lspconfig.setup_default()
+      lspconfig.setup_servers()
+      lspconfig.setup_dap()
+
+      require("neoconf").setup()
     end,
   },
 }
