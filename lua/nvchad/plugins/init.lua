@@ -56,13 +56,13 @@ return {
   },
 
   {
-    "folke/which-key.nvim",
-    keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
-    cmd = "WhichKey",
-    opts = function()
-      dofile(vim.g.base46_cache .. "whichkey")
-      return {}
-    end,
+    "Cassin01/wf.nvim",
+    version = "*",
+    lazy = false,
+    config = function() 
+      require("wf").setup()
+      require "nvchad.configs.wf"
+    end
   },
 
   -- formatting!
@@ -182,13 +182,14 @@ return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       {
+        "nvim-neotest/nvim-nio",
         "mfussenegger/nvim-dap",
         dependencies = {
           { "mfussenegger/nvim-dap-python" },
         },
         config = function(_, opts)
           require("dap-python").setup("~/.local/venv/debugpy/bin/python", { test_runner = "unittest" })
-          require "configs.dap"
+          require "nvchad.configs.dap"
         end,
       },
 
@@ -237,12 +238,12 @@ return {
     end,
     event = "User FilePost",
     config = function()
+      require("neoconf").setup()
+
       local lspconfig = require("nvchad.configs.lspconfig")
       lspconfig.setup_default()
       lspconfig.setup_servers()
       lspconfig.setup_dap()
-
-      require("neoconf").setup()
     end,
   },
 }
