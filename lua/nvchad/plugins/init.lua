@@ -86,8 +86,23 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+    },
     opts = function()
       return require "nvchad.configs.mason"
+    end,
+    config = function(_, opts)
+      require "mason".setup()
+      require "mason-lspconfig".setup {    
+        ensure_installed = {
+          "lua_ls",
+          "pyright",
+          "bashls",
+          "jsonls",
+          "html",
+        }
+      }
     end,
   },
 
