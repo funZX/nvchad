@@ -51,9 +51,9 @@ vim.keymap.set(
 -- Which Key
 vim.keymap.set(
   "n",
-  "<Leader>",
+  "<Space>",
    -- mark(opts?: table) -> function
    -- opts?: option
-  which_key({ text_insert_in_advance = "<Leader>" }),
+  which_key({ text_insert_in_advance = "<Space>" }),
   { noremap = true, silent = true, desc = "[wf.nvim] which-key /", }
 )
