@@ -227,7 +227,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "ray-x/lsp_signature.nvim",
-      event = "VeryLazy",
     },
     init = function()
       vim.opt.expandtab = true
@@ -238,8 +237,6 @@ return {
     end,
     event = "User FilePost",
     config = function()
-      require("lsp_signature").setup({})
-
       local lspconfig = require("nvchad.configs.lspconfig")
       lspconfig.setup_default()
       lspconfig.setup_servers()
