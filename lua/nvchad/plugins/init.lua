@@ -207,22 +207,27 @@ return {
   },
 
   {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "folke/neoconf.nvim",
+    "folke/neodev.nvim",
+    dependencies = { 
+      "folke/neoconf.nvim" 
+    },
+    opts = {
+      library = {
+        plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+        types = true,
+       },
+     },
+    config = function(_, opts)
+      require("neoconf").setup()
+      require("neodev").setup(opts)
+    end,
+  },
 
-      dependecies =  {
-        "folke/neodev.nvim",
-        opts = {
-          library = {
-            plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
-            types = true,
-          },
-        },
-        config = function(_, opts)
-          require("neodev").setup(opts)
-        end,
-      },
+  {
+    "neovim/nvim-lspconfig",
+    dependecies = {
+      "ray-x/lsp_signature.nvim",
+      event = "VeryLazy",
     },
     init = function()
       vim.opt.expandtab = true
@@ -233,7 +238,7 @@ return {
     end,
     event = "User FilePost",
     config = function()
-      require("neoconf").setup()
+      require("lsp_signature").setup({})
 
       local lspconfig = require("nvchad.configs.lspconfig")
       lspconfig.setup_default()
