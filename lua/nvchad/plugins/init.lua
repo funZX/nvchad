@@ -17,7 +17,18 @@ return {
   },
 
   "nvzone/volt",
-  "nvzone/menu",
+  {
+    "nvzone/menu",
+    config = function(_, opts)
+      vim.keymap.set("n", "<RightMouse>", function()
+        vim.cmd.exec '"normal! \\<RightMouse>"'
+
+        local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+        require("menu").open(options, { mouse = true })
+      end, {})
+    end,
+  },
+
   { "nvzone/minty", cmd = { "Huefy", "Shades" } },
 
   {
@@ -168,20 +179,17 @@ return {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
-      {
-        "nvim-neotest/nvim-nio",
-        "mfussenegger/nvim-dap",
-        dependencies = {
-          { "mfussenegger/nvim-dap-python" },
-        },
-        config = function(_, opts)
-          require("dap-python").setup("~/.local/venv/debugpy/bin/python", { test_runner = "unittest" })
-          require "nvchad.configs.dap"
-        end,
-      },
-
+      "nvim-neotest/nvim-nio",
+      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python",
     },
+    opts = function()
+      dofile(vim.g.base46_cache .. "dap")
+    end,
     config = function(_, opts)
+      require "nvchad.configs.dap"
+
+      require("dap-python").setup("~/.local/venv/debugpy/bin/python", { test_runner = "unittest" })
       require("dapui").setup(opts)
     end,
   },

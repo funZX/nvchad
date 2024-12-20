@@ -97,7 +97,7 @@ M.setup_servers = function()
   }
 
   local lspconfig = require "lspconfig"
-  local servers = { "html", "cssls", "clangd", "pyright", "bashls", "html", "jsonls", "robot" }
+  local servers = { "html", "cssls", "clangd", "pyright", "bashls", "jsonls","robot" }
 
   -- lsps with default config
   for _, lsp in ipairs(servers) do
