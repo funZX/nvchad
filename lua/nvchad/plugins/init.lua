@@ -225,7 +225,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    dependecies = {
+    dependencies = {
       "ray-x/lsp_signature.nvim",
       event = "VeryLazy",
     },
