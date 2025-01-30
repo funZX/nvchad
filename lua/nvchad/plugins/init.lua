@@ -254,6 +254,7 @@ return {
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",
+        lazy=false,
         dependencies = {
             { "github/copilot.vim" },
             { "nvim-lua/plenary.nvim", branch = "master" },
