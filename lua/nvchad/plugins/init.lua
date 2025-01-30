@@ -76,13 +76,13 @@ return {
     },
 
     {
-        "Cassin01/wf.nvim",
-        version = "*",
-        lazy = false,
-        config = function()
-            require("wf").setup()
-            require "nvchad.configs.wf"
-        end
+        "folke/which-key.nvim",
+        keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+        cmd = "WhichKey",
+        opts = function()
+            dofile(vim.g.base46_cache .. "whichkey")
+            return {}
+        end,
     },
 
     -- formatting!
@@ -251,5 +251,15 @@ return {
             lspconfig.setup_servers()
             lspconfig.setup_dap()
         end,
+    },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "github/copilot.vim" },
+            { "nvim-lua/plenary.nvim", branch = "master" },
+        },
+        build = "make tiktoken",
+        opts = {
+        },
     },
 }

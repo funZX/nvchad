@@ -96,7 +96,12 @@ map({ "n", "t" }, "<A-i>", function()
 end, { desc = "terminal toggle floating term" })
 
 
+-- whichkey
+map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
+map("n", "<leader>wk", function()
+  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
+end, { desc = "whichkey query lookup" })
 
 
 -- global lsp mappings
@@ -153,3 +158,10 @@ end, { desc = "python test class" })
 map("n", "<leader>tm", function()
   require("dap-python").test_method()
 end, { desc = "python test method" })
+
+
+-- copilot
+
+map("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { desc = "copilot chat toggle" })
+map("n", "<leader>cs", "<cmd>CopilotChatStop<CR>", { desc = "copilot chat stop" })
+map("n", "<leader>cr", "<cmd>CopilotChatReset<CR>", { desc = "copilot chat reset" })
