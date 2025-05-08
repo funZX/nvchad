@@ -19,6 +19,6 @@ return {
     },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "live_grep_args" },
   extensions = {},
 }
