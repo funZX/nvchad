@@ -165,7 +165,7 @@ return {
 
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { 
+        dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "nvim-telescope/telescope-live-grep-args.nvim"
         },
@@ -257,7 +257,7 @@ return {
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",
-        lazy=false,
+        lazy = true,
         dependencies = {
             { "github/copilot.vim" },
             { "nvim-lua/plenary.nvim", branch = "master" },
@@ -266,4 +266,9 @@ return {
         opts = {
         },
     },
+    {
+        "mrcjkb/rustaceanvim",
+        version = '^6',
+        lazy = false,
+    }
 }

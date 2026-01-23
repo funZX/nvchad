@@ -63,8 +63,7 @@ M.setup_default = function()
   dofile(vim.g.base46_cache .. "lsp")
   require("nvchad.lsp").diagnostic_config()
 
-  local lspconfig = require "lspconfig"
-  lspconfig.lua_ls.setup {
+  vim.lsp.config("lua_ls", {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     on_init = M.on_init,
@@ -87,12 +86,11 @@ M.setup_default = function()
         },
       },
     },
-  }
+  })
 end
 
 M.setup_servers = function()
-  local configs = require "lspconfig.configs"
-  configs.robot = {
+  vim.lsp.config.robot = {
       default_config = {
           name = "robot",
           cmd = { "robotframework_ls" },
@@ -103,16 +101,15 @@ M.setup_servers = function()
       },
   }
 
-  local lspconfig = require "lspconfig"
-  local servers = { "html", "cssls", "clangd", "pyright", "bashls", "jsonls","robot" }
+  local servers = { "html", "cssls", "clangd", "rust_analyzer","pyright", "bashls", "jsonls", "robot", "ruff" }
 
   -- lsps with default config
   for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
+    vim.lsp.config(lsp, {
       on_attach = M.on_attach,
       on_init = M.on_init,
       capabilities = M.capabilities,
-    }
+    })
   end
 end
 
