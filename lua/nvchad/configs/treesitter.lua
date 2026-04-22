@@ -19,7 +19,6 @@ return {
     "lua",
     "luadoc",
     "squirrel",
-    "jsonc",
     "html",
     "vim",
     "vimdoc",
