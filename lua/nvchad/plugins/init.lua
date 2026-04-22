@@ -239,7 +239,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim", branch = "master" },
     },
     opts = {
       -- add any options here
