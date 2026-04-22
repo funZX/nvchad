@@ -127,6 +127,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "ray-x/lsp_signature.nvim",
+      "saghen/blink.cmp",
     },
     init = function()
       vim.opt.expandtab = true
