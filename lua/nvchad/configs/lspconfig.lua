@@ -101,7 +101,7 @@ M.setup_servers = function()
       },
   }
 
-  local servers = { "html", "cssls", "clangd", "rust_analyzer","pyright", "bashls", "jsonls", "robot", "ruff" }
+  local servers = { "html", "cssls", "clangd", "rust_analyzer","pyright", "bashls", "jsonls", "robot", "lua_ls", "ruff", "copilot_ls" }
 
   -- lsps with default config
   for _, lsp in ipairs(servers) do

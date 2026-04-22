@@ -159,9 +159,5 @@ map("n", "<leader>tm", function()
   require("dap-python").test_method()
 end, { desc = "python test method" })
 
+-- sidekick
 
--- copilot
-
-map("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { desc = "copilot chat toggle" })
-map("n", "<leader>cs", "<cmd>CopilotChatStop<CR>", { desc = "copilot chat stop" })
-map("n", "<leader>cr", "<cmd>CopilotChatReset<CR>", { desc = "copilot chat reset" })
