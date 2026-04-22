@@ -9,7 +9,7 @@ return {
   },
 
   {
-    "nvchad/ui",
+    "funZX/ui",
     lazy = false,
     config = function()
       require "nvchad"
