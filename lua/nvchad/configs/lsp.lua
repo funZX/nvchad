@@ -75,6 +75,22 @@ M.defaults = function()
     end,
   })
 
+  vim.lsp.config.clangd = {
+    default_config = {
+      name = "clangd",
+      cmd = { "clangd" },
+      filetypes = { "c", "cpp", "objc", "objcpp" },
+      root_dir = vim.fs.root(0, { 'compile_commands.json', '.git' }),
+    },
+  }
+
+  vim.lsp.config.ruff = {
+    cmd = { 'ruff', 'server' },
+    filetypes = { 'python' },
+    root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+    settings = {},
+  }
+
   vim.lsp.config.robot = {
     default_config = {
       name = "robot",
