@@ -34,8 +34,14 @@ end
 
 -- disable semanticTokens
 M.on_init = function(client, _)
-  if client.supports_method "textDocument/semanticTokens" then
-    client.server_capabilities.semanticTokensProvider = nil
+  if vim.fn.has "nvim-0.11" ~= 1 then
+    if client.supports_method "textDocument/semanticTokens" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  else
+    if client:supports_method "textDocument/semanticTokens" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
   end
 end
 
@@ -59,37 +65,35 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-M.setup_default = function()
+M.defaults = function()
   dofile(vim.g.base46_cache .. "lsp")
   require("nvchad.lsp").diagnostic_config()
 
-  vim.lsp.config("lua_ls", {
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-    on_init = M.on_init,
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      M.on_attach(_, args.buf)
+    end,
+  })
 
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = {
-            vim.fn.expand "$VIMRUNTIME/lua",
-            vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
-            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
-            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
-            "${3rd}/luv/library",
-          },
-          maxPreload = 100000,
-          preloadFileSize = 10000,
+  local lua_lsp_settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      workspace = {
+        library = {
+          vim.fn.expand "$VIMRUNTIME/lua",
+          vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+          vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+          "${3rd}/luv/library",
         },
       },
     },
-  })
-end
+  }
 
-M.setup_servers = function()
+  -- Use new vim.lsp.config API for Neovim 0.11+
+  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
+  vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
+
+
   vim.lsp.config.robot = {
       default_config = {
           name = "robot",
@@ -101,19 +105,8 @@ M.setup_servers = function()
       },
   }
 
-  local servers = { "html", "cssls", "clangd", "rust_analyzer","pyright", "bashls", "jsonls", "robot", "lua_ls", "ruff", "copilot_ls" }
+  vim.lsp.enable "html", "cssls", "clangd", "rust_analyzer","pyright", "bashls", "jsonls", "robot", "lua_ls", "ruff", "copilot_ls"
 
-  -- lsps with default config
-  for _, lsp in ipairs(servers) do
-    vim.lsp.config(lsp, {
-      on_attach = M.on_attach,
-      on_init = M.on_init,
-      capabilities = M.capabilities,
-    })
-  end
-end
-
-M.setup_dap = function()
   local dap, dapui = require("dap"), require("dapui")
 
   dap.listeners.before.attach.dapui_config = function()

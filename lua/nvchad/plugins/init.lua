@@ -32,6 +32,23 @@ return {
     }
   },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "User FilePost",
+    opts = {
+      indent = { char = "¦", highlight = "IblChar" },
+      scope = { char = "¦", highlight = "IblScopeChar" },
+    },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "blankline")
+
+      local hooks = require "ibl.hooks"
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+      require("ibl").setup(opts)
+
+      dofile(vim.g.base46_cache .. "blankline")
+    end,
+  },
+  {
     "echasnovski/mini.icons",
     lazy = true,
     opts = {},
@@ -86,7 +103,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
+    build = ":TSUpdate | TSInstallAll",
     opts = function()
       return require "nvchad.configs.treesitter"
     end,
@@ -139,10 +156,7 @@ return {
     end,
     event = "User FilePost",
     config = function()
-      local nvlsp = require "nvchad.configs.lspconfig"
-      nvlsp.setup_default()
-      nvlsp.setup_servers()
-      nvlsp.setup_dap()
+      require "nvchad.configs.lspconfig".defaults()
     end,
   },
   {
