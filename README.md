@@ -26,7 +26,6 @@
 
 ## Showcase
 
-![nvdash](https://github.com/user-attachments/assets/0c7e2c8f-8940-42ea-9c18-7456768d2d05)
 <img src="https://nvchad.com/banner.webp">
 
 <img src="https://nvchad.com/screenshots/onedark.webp">
