@@ -14,6 +14,7 @@ return {
       require "nvchad"
     end,
   },
+  { import = "nvchad.blink.lazyspec" },
 
   { "nvzone/minty", cmd = { "Huefy", "Shades" } },
   { "nvzone/volt",
