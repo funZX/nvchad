@@ -105,7 +105,7 @@ M.defaults = function()
       },
   }
 
-  vim.lsp.enable "html", "cssls", "clangd", "rust_analyzer","pyright", "bashls", "jsonls", "robot", "lua_ls", "ruff", "copilot_ls"
+  vim.lsp.enable "clangd", "robot", "lua_ls", "ruff", "copilot_ls"
 
   local dap, dapui = require("dap"), require("dapui")
 
