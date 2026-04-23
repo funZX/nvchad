@@ -135,20 +135,9 @@ return {
     event = "LspAttach",
 
     dependencies = {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-        "ray-x/lsp_signature.nvim",
-      },
-      init = function()
-        vim.opt.expandtab = true
-        vim.opt.shiftwidth = 4
-        vim.opt.smartindent = true
-        vim.opt.tabstop = 4
-        vim.opt.softtabstop = 4
-      end,
-      event = "User FilePost",
+      "ray-x/lsp_signature.nvim",
       config = function()
-        require "nvchad.configs.lspconfig".defaults()
+        require "nvchad.configs.lsp".defaults()
       end,
     },
     opts = {
