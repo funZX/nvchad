@@ -80,56 +80,26 @@ M.defaults = function()
   vim.lsp.config.clangd = {
     name = "clangd",
     cmd = { "clangd" },
-    filetypes = { "c", "cpp" },
-    root_dir = function(fname)
-      return util.root_pattern(
-        '.clangd',
-        '.clang-tidy',
-        '.clang-format',
-        'compile_commands.json',
-        'compile_flags.txt',
-        'configure.ac' -- AutoTools
-      )(fname) or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-    end,
-    single_file_support = true,
+    filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
+    root_markers = {'.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac', '.git' },
   }
 
   vim.lsp.config.ruff = {
     cmd = { 'ruff', 'server' },
     filetypes = { 'python' },
-    root_dir = function(fname)
-      return util.root_pattern('pyproject.toml', 'ruff.toml', '.ruff.toml')(fname)
-        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-    end,
     settings = {},
+    root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
   }
 
   vim.lsp.config.robot = {
     name = "robot",
     cmd = { "robotframework_ls" },
     filetypes = { "robot" },
-    root_dir = function(fname)
-      return util.root_pattern('robotidy.toml', 'pyproject.toml', 'conda.yaml', 'robot.yaml')(fname)
-        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-    end,
-  }
-
-  vim.lsp.config.typescript = {
-    name = "typescript",
-    init_options = { hostInfo = 'neovim' },
-    cmd = {'typescript-language-server', '--stdio'},
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-    },
-    root_dir = util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
-    single_file_support = true,
+    root_markers = { 'robotidy.toml', 'pyproject.toml', 'conda.yaml', 'robot.yaml', '.git' },
   }
 
   -- Use new vim.lsp.config API for Neovim 0.11+
-  vim.lsp.enable("clangd", "typescript", "robot", "ruff", "copilot_ls")
+  vim.lsp.enable("clangd", "robot", "ruff", "copilot_ls")
 
   local dap, dapui = require("dap"), require("dapui")
 
