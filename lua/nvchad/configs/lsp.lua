@@ -74,14 +74,14 @@ M.defaults = function()
       M.on_attach(_, args.buf)
     end,
   })
+  
+  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
 
   vim.lsp.config.clangd = {
-    default_config = {
-      name = "clangd",
-      cmd = { "clangd" },
-      filetypes = { "c", "cpp" },
-      root_dir = vim.fs.root(0, { 'compile_commands.json', '.git' }),
-    },
+    name = "clangd",
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp" },
+    root_markers = vim.fs.root(0, { 'compile_commands.json', '.git' }),
   }
 
   vim.lsp.config.ruff = {
@@ -92,25 +92,20 @@ M.defaults = function()
   }
 
   vim.lsp.config.robot = {
-    default_config = {
-      name = "robot",
-      cmd = { "robotframework_ls" },
-      filetypes = "robot",
-      root_dir = vim.fs.root(0, {'package.json', '.git'}),
-    },
+    name = "robot",
+    cmd = { "robotframework_ls" },
+    filetypes = { "robot" },
+    root_markers = vim.fs.root(0, {'package.json', '.git'}),
   }
 
   vim.lsp.config.typescript = {
-    default_config = {
-      name = "typescript",
-      cmd = {'typescript-language-server', '--stdio'},
-      filetypes = { 'typescript' },
-      root_dir = vim.fs.root(0, {'package.json', '.git'}),
-    },
+    name = "typescript",
+    cmd = {'typescript-language-server', '--stdio'},
+    filetypes = { 'typescript' },
+    root_markers = vim.fs.root(0, {'package.json', '.git'}),
   }
 
   -- Use new vim.lsp.config API for Neovim 0.11+
-  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
   vim.lsp.enable("clangd", "typescript", "robot", "ruff", "copilot_ls")
 
   local dap, dapui = require("dap"), require("dapui")
