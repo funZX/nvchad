@@ -86,9 +86,14 @@ M.defaults = function()
       },
   }
 
+  vim.lsp.config('tsserver', {
+    cmd = {'typescript-language-server', '--stdio'},
+    filetypes = { 'typescript' },
+    root_dir = vim.fs.root(0, {'package.json', '.git'}),
+  })
   -- Use new vim.lsp.config API for Neovim 0.11+
   vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
-  vim.lsp.enable "clangd", "typescript", "robot", "ruff", "copilot_ls"
+  vim.lsp.enable("clangd", "tsserver", "robot", "ruff", "copilot_ls")
 
   local dap, dapui = require("dap"), require("dapui")
 
