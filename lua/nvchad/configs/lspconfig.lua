@@ -76,21 +76,23 @@ M.defaults = function()
   })
 
   vim.lsp.config.robot = {
-      default_config = {
-          name = "robot",
-          cmd = { "robotframework_ls" },
-          filetypes = "robot",
-          root_dir = function()
-              return vim.fn.getcwd()
-          end,
-      },
+    default_config = {
+      name = "robot",
+      cmd = { "robotframework_ls" },
+      filetypes = "robot",
+      root_dir = vim.fs.root(0, {'package.json', '.git'}),
+    },
   }
 
   vim.lsp.config.typescript = {
-    cmd = {'typescript-language-server', '--stdio'},
-    filetypes = { 'typescript' },
-    root_dir = vim.fs.root(0, {'package.json', '.git'}),
-  })
+    default_config = {
+      name = "typescript",
+      cmd = {'typescript-language-server', '--stdio'},
+      filetypes = { 'typescript', 'ts' },
+      root_dir = vim.fs.root(0, {'package.json', '.git'}),
+    },
+  }
+
   -- Use new vim.lsp.config API for Neovim 0.11+
   vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
   vim.lsp.enable("clangd", "typescript", "robot", "ruff", "copilot_ls")
