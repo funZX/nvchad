@@ -76,26 +76,26 @@ M.defaults = function()
   })
   
 
-  vim.lsp.config.clangd = {
+  vim.lsp.config("clangd", {
     name = "clangd",
     cmd = { "clangd" },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
     root_markers = {'.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac', '.git' },
-  }
+  })
 
-  vim.lsp.config.ruff = {
+  vim.lsp.config("ruff", {
     cmd = { 'ruff', 'server' },
     filetypes = { 'python' },
     settings = {},
     root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
-  }
+  })
 
-  vim.lsp.config.robot = {
+  vim.lsp.config("robot", {
     name = "robot",
     cmd = { "robotframework_ls" },
     filetypes = { "robot" },
     root_markers = { 'robotidy.toml', 'pyproject.toml', 'conda.yaml', 'robot.yaml', '.git' },
-  }
+  })
 
   -- Use new vim.lsp.config API for Neovim 0.11+
   vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
