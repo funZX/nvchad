@@ -79,7 +79,7 @@ M.defaults = function()
     default_config = {
       name = "clangd",
       cmd = { "clangd" },
-      filetypes = { "c", "cpp", "objc", "objcpp" },
+      filetypes = { "c", "cpp" },
       root_dir = vim.fs.root(0, { 'compile_commands.json', '.git' }),
     },
   }
@@ -104,7 +104,7 @@ M.defaults = function()
     default_config = {
       name = "typescript",
       cmd = {'typescript-language-server', '--stdio'},
-      filetypes = { 'typescript', 'ts' },
+      filetypes = { 'typescript' },
       root_dir = vim.fs.root(0, {'package.json', '.git'}),
     },
   }
