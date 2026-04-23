@@ -75,7 +75,6 @@ M.defaults = function()
     end,
   })
   
-  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
 
   vim.lsp.config.clangd = {
     name = "clangd",
@@ -99,6 +98,7 @@ M.defaults = function()
   }
 
   -- Use new vim.lsp.config API for Neovim 0.11+
+  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
   vim.lsp.enable("clangd", "robot", "ruff", "copilot_ls")
 
   local dap, dapui = require("dap"), require("dapui")
