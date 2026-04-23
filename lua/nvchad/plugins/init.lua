@@ -1,5 +1,4 @@
 return {
-  { import = "nvchad.blink.lazyspec"},
   { "nvim-lua/plenary.nvim" },
   {
     "funZX/base46",
