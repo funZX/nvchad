@@ -76,8 +76,8 @@ M.defaults = function()
   })
   
 
-  vim.lsp.config("cpp", {
-    name = "cpp",
+  vim.lsp.config("clangd", {
+    name = "clangd",
     cmd = { "clangd" },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
     root_markers = {'.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac', '.git' },
@@ -99,7 +99,7 @@ M.defaults = function()
 
   -- Use new vim.lsp.config API for Neovim 0.11+
   vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
-  vim.lsp.enable("cpp", "robot", "ruff", "copilot_ls")
+  vim.lsp.enable({"clangd", "robot", "ruff", "copilot_ls"})
 
   local dap, dapui = require("dap"), require("dapui")
 
