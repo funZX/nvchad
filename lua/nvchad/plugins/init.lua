@@ -134,6 +134,23 @@ return {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
 
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      dependencies = {
+        "ray-x/lsp_signature.nvim",
+      },
+      init = function()
+        vim.opt.expandtab = true
+        vim.opt.shiftwidth = 4
+        vim.opt.smartindent = true
+        vim.opt.tabstop = 4
+        vim.opt.softtabstop = 4
+      end,
+      event = "User FilePost",
+      config = function()
+        require "nvchad.configs.lspconfig".defaults()
+      end,
+    },
     opts = {
       symbol_in_winbar = { enable = false },
     },
@@ -142,23 +159,6 @@ return {
     end,
   },
 
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "ray-x/lsp_signature.nvim",
-    },
-    init = function()
-      vim.opt.expandtab = true
-      vim.opt.shiftwidth = 4
-      vim.opt.smartindent = true
-      vim.opt.tabstop = 4
-      vim.opt.softtabstop = 4
-    end,
-    event = "User FilePost",
-    config = function()
-      require "nvchad.configs.lspconfig".defaults()
-    end,
-  },
   {
     "folke/sidekick.nvim",
     event = "VeryLazy",
