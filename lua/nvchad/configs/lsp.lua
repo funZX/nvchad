@@ -81,7 +81,7 @@ M.defaults = function()
     name = "clangd",
     cmd = { "clangd" },
     filetypes = { "c", "cpp" },
-    root_markers = vim.fs.root(0, { 'compile_commands.json', '.git' }),
+    root_markers = { 'compile_commands.json', '.git' },
   }
 
   vim.lsp.config.ruff = {
@@ -95,14 +95,14 @@ M.defaults = function()
     name = "robot",
     cmd = { "robotframework_ls" },
     filetypes = { "robot" },
-    root_markers = vim.fs.root(0, {'package.json', '.git'}),
+    root_markers = {'package.json', '.git'},
   }
 
   vim.lsp.config.typescript = {
     name = "typescript",
     cmd = {'typescript-language-server', '--stdio'},
     filetypes = { 'typescript' },
-    root_markers = vim.fs.root(0, {'package.json', '.git'}),
+    root_markers = {'package.json', '.git'},
   }
 
   -- Use new vim.lsp.config API for Neovim 0.11+
