@@ -75,25 +75,6 @@ M.defaults = function()
     end,
   })
 
-  local lua_lsp_settings = {
-    Lua = {
-      runtime = { version = "LuaJIT" },
-      workspace = {
-        library = {
-          vim.fn.expand "$VIMRUNTIME/lua",
-          vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
-          vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
-          "${3rd}/luv/library",
-        },
-      },
-    },
-  }
-
-  -- Use new vim.lsp.config API for Neovim 0.11+
-  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
-  vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
-
-
   vim.lsp.config.robot = {
       default_config = {
           name = "robot",
@@ -105,7 +86,9 @@ M.defaults = function()
       },
   }
 
-  vim.lsp.enable "clangd", "robot", "lua_ls", "ruff", "copilot_ls"
+  -- Use new vim.lsp.config API for Neovim 0.11+
+  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
+  vim.lsp.enable "clangd", "typescript", "robot", "ruff", "copilot_ls"
 
   local dap, dapui = require("dap"), require("dapui")
 
