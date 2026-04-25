@@ -1,9 +1,21 @@
 return {
+
   {
     "folke/sidekick.nvim",
     event = "VeryLazy",
     dependencies = {
-      { "github/copilot.vim" },
+      {
+        "zbirenbaum/copilot.lua"
+        dependencies = {
+          { "copilotlsp-nvim/copilot-lsp" },
+          { "giuxtaposition/blink-cmp-copilot" },
+        },
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+          require("copilot").setup({})
+        end,
+      },
     },
     opts = {
       -- add any options here

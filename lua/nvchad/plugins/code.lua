@@ -1,5 +1,6 @@
 return {
   { import = "nvchad.blink.lazyspec" },
+
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "User FilePost",
@@ -18,6 +19,7 @@ return {
       return require "nvchad.configs.gitsigns"
     end,
   },
+  -- dap
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
