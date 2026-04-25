@@ -46,7 +46,7 @@ M.on_init = function(client, _)
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-
+M.capabilities.general.positionEncodings = { "utf-16" }
 M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
