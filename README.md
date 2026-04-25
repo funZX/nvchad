@@ -33,7 +33,7 @@
 
 ## What is it?
 
-- NvChad is a neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime (around 0.02 secs ~ 0.07 secs). We tweak UI plugins such as telescope, nvim-tree etc well to provide an aesthetic UI experience. 
+- NvChad is a neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime (around 0.02 secs ~ 0.07 secs). We tweak UI plugins such as nvim-tree etc well to provide an aesthetic UI experience. 
 
 - Lazy loading is done 93% of the time meaning that plugins will not be loaded by default, they will be loaded only when required also at specific commands, events etc. This lowers the startuptime and it was like 0.07~ secs tested on an old pentium machine 1.4ghz + 4gb ram & HDD.
 
@@ -61,12 +61,6 @@
 Fast file tree:
 
 <kbd><img src="https://nvchad.com/features/nvimtree.webp"></kbd>
-
-<h3> Telescope-nvim </h3>
-
-A fuzzy file finder, picker, sorter, previewer and much more:
-
-<kbd><img src="https://nvchad.com/features/telescope.webp"></kbd>
 
 <h3> Our own statusline written from scratch  </h3>
 
@@ -97,7 +91,6 @@ For detailed info list, check [features page](https://nvchad.com/docs/features)
 - Git diffs and more with [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 
 - NeoVim Lsp configuration with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) and [mason.nvim](https://github.com/williamboman/mason.nvim)
 - Autocompletion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- File searching, previewing text files and more with [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim).
 - Syntax highlighting with [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - Autoclosing braces and html tags with [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - Indentlines with [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)

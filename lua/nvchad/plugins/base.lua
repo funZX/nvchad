@@ -2,6 +2,7 @@ return {
   { "nvim-lua/plenary.nvim" },
   {
     "funZX/base46",
+    branch = "v3.0.1.funZX",
     build = function()
       require("base46").load_all_highlights()
     end,
@@ -9,6 +10,7 @@ return {
 
   {
     "funZX/ui",
+    branch = "v3.0.1.funZX",
     lazy = false,
     config = function()
       require "nvchad"
@@ -57,17 +59,6 @@ return {
     opts = function()
       dofile(vim.g.base46_cache .. "whichkey")
       return {}
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-live-grep-args.nvim",
-    },
-    cmd = "Telescope",
-    opts = function()
-      return require "nvchad.configs.telescope"
     end,
   },
 
