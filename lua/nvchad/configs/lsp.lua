@@ -85,7 +85,7 @@ M.defaults = function()
 
   -- Use new vim.lsp.config API for Neovim 0.11+
   vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
-  vim.lsp.enable({"bashls", clangd", "rusta", "ruff", "robot", "typescript"})
+  vim.lsp.enable({"bashls", "clangd", "rusta", "ruff", "robot", "typescript"})
 
   local dap, dapui = require("dap"), require("dapui")
 
