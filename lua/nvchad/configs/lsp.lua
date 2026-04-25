@@ -84,7 +84,7 @@ M.defaults = function()
   vim.lsp.config("robot", require("nvchad.configs.lsp.robot"))
   vim.lsp.config("vtsls", require("nvchad.configs.lsp.vtsls"))
   vim.lsp.config("vue_ls", require("nvchad.configs.lsp.vue_ls"))
-  vim.lsp.config("csls", require("nvchad.configs.lsp.cssls"))
+  vim.lsp.config("cssls", require("nvchad.configs.lsp.cssls"))
   vim.lsp.config("html", require("nvchad.configs.lsp.html"))
 
   -- Use new vim.lsp.config API for Neovim 0.11+
