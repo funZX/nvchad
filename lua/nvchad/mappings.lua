@@ -6,9 +6,6 @@ map("i", "<C-e>", "<End>", { desc = "move end of line" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
-map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
-
 
 -- tabufline
 if require("nvconfig").ui.tabufline.enabled then
