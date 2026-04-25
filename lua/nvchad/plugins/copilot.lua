@@ -12,7 +12,7 @@ return {
       cmd = "Copilot",
       event = "InsertEnter",
       config = function()
-        require("copilot").setup({})
+        require("copilot").setup({nes = {enabled = true}})
       end,
     },
     opts = {
