@@ -4,7 +4,7 @@ return {
     "folke/sidekick.nvim",
     event = "VeryLazy",
     dependencies = {
-      "zbirenbaum/copilot.lua"
+      "zbirenbaum/copilot.lua",
       dependencies = {
         { "copilotlsp-nvim/copilot-lsp" },
         { "giuxtaposition/blink-cmp-copilot" },
