@@ -10,20 +10,6 @@ M.on_attach = function(_, bufnr)
   end, { desc = "Lsp list workspace folders"})
   map("n", "<leader>gR", require "nvchad.lsp.renamer", { desc = "Lsp rename"})
 
-  -- lsp saga
-  map("n", "<leader>gr", "<cmd>Lspsaga finder<cr>", { desc = "Lsp references" })
-  map("n", "<leader>ga", "<cmd>Lspsaga code_action<cr>", { desc = "Lsp code actions" })
-  map("n", "<leader>gh", "<cmd>Lspsaga hover_doc <cr>", { desc = "Lsp hover" })
-  map("n", "<leader>gd", "<cmd>Lspsaga goto_definition <cr>", { desc = "Lsp goto definition" })
-  map("n", "<leader>gD", "<cmd>Lspsaga peek_definition <cr>", { desc = "Lsp peek definition" })
-  map("n", "<leader>gt", "<cmd>Lspsaga goto_type_definition <cr>", { desc = "Lsp goto type definition" })
-  map("n", "<leader>gT", "<cmd>Lspsaga peek_type_definition <cr>", { desc = "Lsp peek type definition" })
-  map("n", "<leader>g?", "<cmd>Lspsaga show_line_diagnostics <cr>", { desc = "Lsp line diagnostic" })
-  map("n", "<leader>gg", "<cmd>Lspsaga show_buf_diagnostics <cr>", { desc = "Lsp buffer diagnostic" })
-  map("n", "<leader>gG", "<cmd>Lspsaga show_workspace_diagnostics <cr>", { desc = "Lsp workspace diagnostics" })
-  map("n", "<leader>g[", "<cmd>Lspsaga diagnostic_jump_prev <cr>", { desc = "Lsp previous diagnostic" })
-  map("n", "<leader>g]", "<cmd>Lspsaga diagnostic_jump_next <cr>", { desc = "Lsp next diagnostic" })
-
   require "lsp_signature".on_attach({
       bind = true,
       handler_opts = {
