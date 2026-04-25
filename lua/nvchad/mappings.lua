@@ -9,7 +9,7 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General copy whole file" })
 
 -- tabufline
 if require("nvconfig").ui.tabufline.enabled then
-  map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer new" })
+  map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
 
   map("n", "<tab>", function()
     require("nvchad.tabufline").next()
