@@ -48,9 +48,9 @@ map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "Whichkey all keymaps" })
 
 
 -- global lsp mappings
-map("n", "<leader>gf", function()
+map("n", "<leader>cf", function()
   vim.lsp.buf.format { async = true }
-end, { desc = "Lsp format" })
+end, { desc = "Lsp format file" })
 
 
 -- dap
