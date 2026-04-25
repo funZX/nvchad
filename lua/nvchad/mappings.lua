@@ -1,102 +1,102 @@
 local map = vim.keymap.set
 
-map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
-map("i", "<C-e>", "<End>", { desc = "move end of line" })
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
-map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General clear highlights" })
+map("i", "<C-b>", "<ESC>^i", { desc = "Move beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "Move end of line" })
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "General save file" })
+map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General copy whole file" })
 
 
 -- tabufline
 if require("nvconfig").ui.tabufline.enabled then
-  map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
+  map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer new" })
 
   map("n", "<tab>", function()
     require("nvchad.tabufline").next()
-  end, { desc = "buffer goto next" })
+  end, { desc = "Buffer goto next" })
 
   map("n", "<S-tab>", function()
     require("nvchad.tabufline").prev()
-  end, { desc = "buffer goto prev" })
+  end, { desc = "Buffer goto prev" })
 
   map("n", "<leader>x", function()
     require("nvchad.tabufline").close_buffer()
-  end, { desc = "buffer close" })
+  end, { desc = "Buffer close" })
 end
 
 -- Comment
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+map("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
+map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 
 
 -- nvimtree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree toggle window" })
 
 
 -- toggleable
 map({ "n", "t" }, "<A-h>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "terminal toggleable horizontal term" })
+end, { desc = "Terminal toggleable horizontal term" })
 
 map({ "n", "t" }, "<A-t>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "terminal toggle floating term" })
+end, { desc = "Terminal toggle floating term" })
 
 
 -- whichkey
-map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
+map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "Whichkey all keymaps" })
 
 
 -- global lsp mappings
 map("n", "<leader>gf", function()
   vim.lsp.buf.format { async = true }
-end, { desc = "lsp format" })
+end, { desc = "Lsp format" })
 
 
 -- dap
 map("n", "<F5>", function()
   require("dap").continue()
-end, { desc = "debug run/continue" })
+end, { desc = "Debug run/continue" })
 
 map("n", "<F10>", function()
   require("dap").step_over()
-end, { desc = "debug step over" })
+end, { desc = "Debug step over" })
 
 map("n", "<F11>", function()
   require("dap").step_into()
-end, { desc = "debug step into" })
+end, { desc = "Debug step into" })
 
 map("n", "<S-F11>", function()
   require("dap").step_out()
-end, { desc = "debug step out" })
+end, { desc = "Debug step out" })
 
 map("n", "<F9>", function()
   require("dap").toggle_breakpoint()
-end, { desc = "debug set breakpoint" })
+end, { desc = "Debug set breakpoint" })
 
 map("n", "<S-F9>", function()
   require("dap").set_breakpoint(vim.fn.input('breakpoint condition: '))
-end, { desc = "debug set condition breakpoint" })
+end, { desc = "Debug set condition breakpoint" })
 
 map("n", "<leader>d?", function()
   require("dapui").eval()
-end, { desc = "debug evaluate" })
+end, { desc = "Debug evaluate" })
 
 map("n", "<leader>do", function()
   require("dapui").open()
-end, { desc = "debug open" })
+end, { desc = "Debug open" })
 
 map("n", "<leader>dq", function()
   require("dapui").close()
-end, { desc = "debug close" })
+end, { desc = "Debug close" })
 
 
 -- dap python
 map("n", "<leader>tc", function()
   require("dap-python").test_class()
-end, { desc = "python test class" })
+end, { desc = "Test python class" })
 
 map("n", "<leader>tm", function()
   require("dap-python").test_method()
-end, { desc = "python test method" })
+end, { desc = "Test python method" })
 

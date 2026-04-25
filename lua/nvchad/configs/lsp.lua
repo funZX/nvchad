@@ -3,26 +3,26 @@ local map = vim.keymap.set
 
 -- export on_attach & capabilities
 M.on_attach = function(_, bufnr)
-  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "lsp add workspace folder"})
-  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "lsp remove workspace folder"})
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "Lsp add workspace folder"})
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Lsp remove workspace folder"})
   map("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, { desc = "lsp list workspace folders"})
-  map("n", "<leader>gR", require "nvchad.lsp.renamer", { desc = "lsp rename"})
+  end, { desc = "Lsp list workspace folders"})
+  map("n", "<leader>gR", require "nvchad.lsp.renamer", { desc = "Lsp rename"})
 
   -- lsp saga
-  map("n", "<leader>gr", "<cmd>Lspsaga finder<cr>", { desc = "lsp references" })
-  map("n", "<leader>ga", "<cmd>Lspsaga code_action<cr>", { desc = "lsp code actions" })
-  map("n", "<leader>gh", "<cmd>Lspsaga hover_doc <cr>", { desc = "lsp hover" })
-  map("n", "<leader>gd", "<cmd>Lspsaga goto_definition <cr>", { desc = "lsp goto definition" })
-  map("n", "<leader>gD", "<cmd>Lspsaga peek_definition <cr>", { desc = "lsp peek definition" })
-  map("n", "<leader>gt", "<cmd>Lspsaga goto_type_definition <cr>", { desc = "lsp goto type definition" })
-  map("n", "<leader>gT", "<cmd>Lspsaga peek_type_definition <cr>", { desc = "lsp peek type definition" })
-  map("n", "<leader>g?", "<cmd>Lspsaga show_line_diagnostics <cr>", { desc = "lsp line diagnostic" })
-  map("n", "<leader>gg", "<cmd>Lspsaga show_buf_diagnostics <cr>", { desc = "lsp buffer diagnostic" })
-  map("n", "<leader>gG", "<cmd>Lspsaga show_workspace_diagnostics <cr>", { desc = "lsp workspace diagnostics" })
-  map("n", "<leader>g[", "<cmd>Lspsaga diagnostic_jump_prev <cr>", { desc = "lsp previous diagnostic" })
-  map("n", "<leader>g]", "<cmd>Lspsaga diagnostic_jump_next <cr>", { desc = "lsp next diagnostic" })
+  map("n", "<leader>gr", "<cmd>Lspsaga finder<cr>", { desc = "Lsp references" })
+  map("n", "<leader>ga", "<cmd>Lspsaga code_action<cr>", { desc = "Lsp code actions" })
+  map("n", "<leader>gh", "<cmd>Lspsaga hover_doc <cr>", { desc = "Lsp hover" })
+  map("n", "<leader>gd", "<cmd>Lspsaga goto_definition <cr>", { desc = "Lsp goto definition" })
+  map("n", "<leader>gD", "<cmd>Lspsaga peek_definition <cr>", { desc = "Lsp peek definition" })
+  map("n", "<leader>gt", "<cmd>Lspsaga goto_type_definition <cr>", { desc = "Lsp goto type definition" })
+  map("n", "<leader>gT", "<cmd>Lspsaga peek_type_definition <cr>", { desc = "Lsp peek type definition" })
+  map("n", "<leader>g?", "<cmd>Lspsaga show_line_diagnostics <cr>", { desc = "Lsp line diagnostic" })
+  map("n", "<leader>gg", "<cmd>Lspsaga show_buf_diagnostics <cr>", { desc = "Lsp buffer diagnostic" })
+  map("n", "<leader>gG", "<cmd>Lspsaga show_workspace_diagnostics <cr>", { desc = "Lsp workspace diagnostics" })
+  map("n", "<leader>g[", "<cmd>Lspsaga diagnostic_jump_prev <cr>", { desc = "Lsp previous diagnostic" })
+  map("n", "<leader>g]", "<cmd>Lspsaga diagnostic_jump_next <cr>", { desc = "Lsp next diagnostic" })
 
   require "lsp_signature".on_attach({
       bind = true,
