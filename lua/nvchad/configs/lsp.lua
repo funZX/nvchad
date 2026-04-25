@@ -76,6 +76,7 @@ M.defaults = function()
   })
   
 
+  vim.lsp.config("bashls", require("nvchad.configs.lsp.bashls"))
   vim.lsp.config("clangd", require("nvchad.configs.lsp.clangd"))
   vim.lsp.config("rusta", require("nvchad.configs.lsp.rusta"))
   vim.lsp.config("ruff", require("nvchad.configs.lsp.ruff"))
@@ -84,7 +85,7 @@ M.defaults = function()
 
   -- Use new vim.lsp.config API for Neovim 0.11+
   vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
-  vim.lsp.enable({"clangd", "rusta", "ruff", "robot", "typescript"})
+  vim.lsp.enable({"bashls", clangd", "rusta", "ruff", "robot", "typescript"})
 
   local dap, dapui = require("dap"), require("dapui")
 
