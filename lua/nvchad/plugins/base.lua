@@ -1,4 +1,5 @@
 return {
+  { "nvim-lua/plenary.nvim" },
   {
     "funZX/base46",
     build = function()
