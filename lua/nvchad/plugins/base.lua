@@ -63,7 +63,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
     cmd = "Telescope",
@@ -77,10 +76,8 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate | TSInstallAll",
-    opts = function()
-      return require "nvchad.configs.treesitter"
-    end,
-    config = function(_, opts)
+    config = function(_, _)
+      opts = require("nvchad.configs.treesitter")
       require("nvim-treesitter.config").setup(opts)
     end,
   },
