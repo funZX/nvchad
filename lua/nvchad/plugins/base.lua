@@ -1,5 +1,4 @@
 return {
-  { "nvim-lua/plenary.nvim" },
   {
     "funZX/base46",
     build = function()
@@ -15,6 +14,7 @@ return {
     end,
   },
 
+  { "nvim-lua/plenary.nvim" },
   { "nvzone/minty", cmd = { "Huefy", "Shades" } },
   { "nvzone/volt",
     lazy = false,
