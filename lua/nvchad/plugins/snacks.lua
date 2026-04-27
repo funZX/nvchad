@@ -25,10 +25,6 @@ return {
         -- wo = { wrap = true } -- Wrap notifications
       }
     },
-    toggle = {
-        map = vim.keymap.set,
-        which_key = true,
-    },
   },
   keys = {
     -- Top Pickers & Explorer
