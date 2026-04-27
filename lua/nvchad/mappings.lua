@@ -33,20 +33,6 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree toggle window" })
 
 
--- toggleable
-map({ "n", "t" }, "<A-h>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "Terminal toggleable horizontal term" })
-
-map({ "n", "t" }, "<A-t>", function()
-  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "Terminal toggle floating term" })
-
-
--- whichkey
-map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "Whichkey all keymaps" })
-
-
 -- global lsp mappings
 map("n", "<leader>cf", function()
   vim.lsp.buf.format { async = true }
