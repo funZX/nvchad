@@ -19,12 +19,12 @@ return {
   { "nvzone/volt",
     lazy = false,
     dependencies = {
-      "nvzone/menu",
+      "funZX/menu",
       config = function(_, opts)
         vim.keymap.set("n", "<RightMouse>", function()
           vim.cmd.exec '"normal! \\<RightMouse>"'
 
-          local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+          local options = vim.bo.ft == "snacks_picker_list" and "nvimtree" or "default"
           require("menu").open(options, { mouse = true })
         end, {})
       end,
