@@ -29,10 +29,6 @@ map("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 
 
--- nvimtree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree toggle window" })
-
-
 -- global lsp mappings
 map("n", "<leader>cf", function()
   vim.lsp.buf.format { async = true }

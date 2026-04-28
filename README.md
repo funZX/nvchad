@@ -56,12 +56,6 @@
 
 <details><summary> <b>Images (Click to expand!)</b></summary>
 
-<h3> Nvim-tree.lua </h3>
-
-Fast file tree:
-
-<kbd><img src="https://nvchad.com/features/nvimtree.webp"></kbd>
-
 <h3> Our own statusline written from scratch  </h3>
 
 [NvChad UI](https://github.com/NvChad/ui)

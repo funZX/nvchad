@@ -92,6 +92,7 @@ return {
     { "<leader>cs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     { "<leader>cS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     -- Other
+    { "<leader>e",  function() Snacks.explorer() end, desc = "Toggle Explorer" },
     { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
     { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
