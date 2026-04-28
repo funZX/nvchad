@@ -66,15 +66,15 @@ end, { desc = "Debug set condition breakpoint" })
 
 map("n", "<leader>d?", function()
   require("dapui").eval()
-end, { desc = "Debug evaluate" })
+end, { desc = "Evaluate expression" })
 
 map("n", "<leader>do", function()
   require("dapui").open()
-end, { desc = "Debug open" })
+end, { desc = "Open debug view" })
 
-map("n", "<leader>dq", function()
+map("n", "<leader>dc", function()
   require("dapui").close()
-end, { desc = "Debug close" })
+end, { desc = "Close debug view" })
 
 
 -- dap python
