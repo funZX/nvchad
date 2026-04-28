@@ -14,22 +14,6 @@ return {
     end,
   },
 
-  { "nvim-lua/plenary.nvim" },
-  { "nvzone/minty", cmd = { "Huefy", "Shades" } },
-  { "nvzone/volt",
-    lazy = false,
-    dependencies = {
-      "funZX/menu",
-      config = function(_, opts)
-        vim.keymap.set("n", "<RightMouse>", function()
-          vim.cmd.exec '"normal! \\<RightMouse>"'
-
-          local options = "default"
-          require("menu").open(options, { mouse = true })
-        end, {})
-      end,
-    }
-  },
   {
     "echasnovski/mini.icons",
     lazy = true,

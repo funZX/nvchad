@@ -3,12 +3,12 @@ local map = vim.keymap.set
 
 -- export on_attach & capabilities
 M.on_attach = function(_, bufnr)
-  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "Lsp add workspace folder"})
-  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Lsp remove workspace folder"})
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "Add workspace folder"})
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove workspace folder"})
   map("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, { desc = "Lsp list workspace folders"})
-  map("n", "<leader>gR", require "nvchad.lsp.renamer", { desc = "Lsp rename"})
+  map("n", "<leader>gR", require "nvchad.lsp.renamer", { desc = "Rename (NvChad)"})
 
   require "lsp_signature".on_attach({
       bind = true,

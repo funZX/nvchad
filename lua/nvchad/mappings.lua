@@ -33,6 +33,9 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 map("n", "<leader>cf", function()
   vim.lsp.buf.format { async = true }
 end, { desc = "Lsp format file" })
+map("n", "<leader>cr", function()
+  vim.lsp.buf.rename()
+end, { desc = "Rename (Lsp)" })
 
 
 -- dap
