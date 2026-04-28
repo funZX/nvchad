@@ -11,14 +11,6 @@ return {
       require("ibl").setup(opts)
     end,
   },
-  -- git stuff
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "User FilePost",
-    opts = function()
-      return require "nvchad.configs.gitsigns"
-    end,
-  },
   -- dap
   {
     "rcarriga/nvim-dap-ui",
