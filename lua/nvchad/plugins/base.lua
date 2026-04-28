@@ -24,7 +24,7 @@ return {
         vim.keymap.set("n", "<RightMouse>", function()
           vim.cmd.exec '"normal! \\<RightMouse>"'
 
-          local options = vim.bo.ft == "snacks_picker_list" and "nvimtree" or "default"
+          local options = "default"
           require("menu").open(options, { mouse = true })
         end, {})
       end,
