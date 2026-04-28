@@ -37,7 +37,7 @@ o.splitright = true
 o.timeoutlen = 400
 o.undofile = true
 
--- interval for writing swap file to disk, also used by gitsigns
+-- interval for writing swap file to disk
 o.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow

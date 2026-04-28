@@ -67,9 +67,6 @@
 <kbd><img src="https://nvchad.com/features/tabufline.webp"></kbd>
 - Here's a [video](https://www.youtube.com/watch?v=V_9iJ96U_k8&ab_channel=siduck) that showcases it.
 
-<h3> NvCheatsheet ( our UI Plugin ) </h3>
-<kbd> <img src="https://nvchad.com/features/nvcheatsheet.webp"/></kbd>
-
 <h3> Modern Theme Picker </h3>
 <kbd> <img src="https://github.com/user-attachments/assets/897e46f1-9ae2-4cc2-8fa2-64eff40a90dd" /> </kbd>
 </details>
@@ -82,7 +79,6 @@ For detailed info list, check [features page](https://nvchad.com/docs/features)
 - Lightweight & performant ui plugin with [NvChad UI](https://github.com/NvChad/ui) It provides statusline modules, tabufline ( tabs + buffer manager) , theme switcher and much more!
 - File navigation with [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - Beautiful and configurable icons with [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- Git diffs and more with [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 
 - NeoVim Lsp configuration with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - Autocompletion with [blink-cmp](https://github.com/saghen/blink.cmp)
 - Syntax highlighting with [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
