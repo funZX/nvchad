@@ -11,5 +11,10 @@ return {
     keys = {
       { "<leader>ww", "<cmd>lua require('neowiki').open_wiki_floating()<cr>", desc = "Open Wiki" },
     },
+  },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown' },
   }
 }
