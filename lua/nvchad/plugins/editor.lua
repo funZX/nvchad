@@ -16,5 +16,6 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown' },
+    render_modes = true,
   }
 }
