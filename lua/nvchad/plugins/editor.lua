@@ -16,6 +16,11 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown' },
-    render_modes = {'i', 'n', 'c', 't'},
+    opts = {
+        render_modes = true,
+    },
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
+    end,
   }
 }
