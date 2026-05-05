@@ -12,9 +12,9 @@ return {
       { "<leader>ww", "<cmd>lua require('neowiki').open_wiki_floating()<cr>", desc = "Open Wiki" },
     },
   },
-  { delphinus/md-render.nvim },
+  { "delphinus/md-render.nvim" },
   -- {
-  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   "MeanderingProgrammer/render-markdown.nvim",
   --   ft = { 'markdown' },
   --   opts = {
   --       render_modes = true,
