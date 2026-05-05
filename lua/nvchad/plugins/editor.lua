@@ -12,6 +12,5 @@ return {
       { "<leader>ww", "<cmd>lua require('neowiki').open_wiki_floating()<cr>", desc = "Open Wiki" },
     },
   },
-
-  { "OXY2DEV/markview.nvim" },
+  { "brianhuster/live-preview.nvim" },
 }
