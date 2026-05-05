@@ -13,14 +13,5 @@ return {
     },
   },
 
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    ft = { 'markdown' },
-    opts = {
-        render_modes = true,
-    },
-    config = function(_, opts)
-      require("render-markdown").setup(opts)
-    end,
-  }
+  { "OXY2DEV/markview.nvim" },
 }
