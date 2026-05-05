@@ -12,5 +12,8 @@ return {
       { "<leader>ww", "<cmd>lua require('neowiki').open_wiki_floating()<cr>", desc = "Open Wiki" },
     },
   },
-  { "brianhuster/live-preview.nvim" },
+  {
+    "brianhuster/live-preview.nvim",
+    event = "VeryLazy",
+  },
 }
