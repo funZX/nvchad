@@ -5,9 +5,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       "zbirenbaum/copilot.lua",
-      dependencies = {
-        { "copilotlsp-nvim/copilot-lsp" },
-      },
       cmd = "Copilot",
       event = "InsertEnter",
       config = function()
@@ -19,7 +16,7 @@ return {
       cli = {
         mux = {
           backend = "tmux",
-          enabled = true,
+          enabled = false,
         },
       },
     },
