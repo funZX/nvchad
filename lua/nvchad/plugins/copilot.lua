@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     dependencies = {
       {
-        "zbirenbaum/copilot.lua"},
+        "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         event = "InsertEnter",
         config = function()
