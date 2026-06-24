@@ -4,12 +4,15 @@ return {
     "folke/sidekick.nvim",
     event = "VeryLazy",
     dependencies = {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function()
-        require("copilot").setup({nes = {enabled = true}})
-      end,
+      {
+        "zbirenbaum/copilot.lua"},
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+          require("copilot").setup({nes = {enabled = true}})
+        end,
+      },
+      { "copilotlsp-nvim/copilot-lsp" },
     },
     opts = {
       -- add any options here
