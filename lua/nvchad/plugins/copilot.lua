@@ -9,7 +9,19 @@ return {
         cmd = "Copilot",
         event = "InsertEnter",
         config = function()
-          require("copilot").setup({nes = {enabled = true}})
+          require("copilot").setup(
+              {
+                  nes = {enabled = true},
+                  panel = {
+                      keymap = {
+                          -- jump_prev = false,
+                          -- jump_next = false,
+                          accept = "<CR>",
+                          dismiss = "<Esc>",
+                      },
+                  }
+              }
+          )
         end,
       },
       { "copilotlsp-nvim/copilot-lsp" },

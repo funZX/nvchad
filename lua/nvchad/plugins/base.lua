@@ -31,6 +31,7 @@ return {
 
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
     cmd = "WhichKey",
     opts = function()
@@ -41,7 +42,16 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "VeryLazy" },
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        init = function()
+          vim.keymap.set("n", "s", "<Nop>", { noremap = true, silent = true })
+        end,
+      }
+    },
+    event = { "User FilePost" },
+    branch = "main",
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate | TSInstallAll",
     opts = function()
@@ -49,6 +59,11 @@ return {
     end,
     config = function(_, opts)
       require("nvim-treesitter.config").setup(opts)
-    end,
+      require('nvim-treesitter-textobjects').setup {
+        move = {
+          set_jumps = true,
+        },
+      }
+    end
   },
 }
